@@ -9,18 +9,18 @@ bluetooth.onBluetoothDisconnected(function () {
 bluetooth.onUartDataReceived(serial.delimiters(Delimiters.Hash), function () {
     cmd = bluetooth.uartReadUntil(serial.delimiters(Delimiters.Hash))
     bluetooth.uartWriteString(cmd)
-    if (cmd == "avant") {
+    if (cmd == "Forward") {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 100)
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 100)
     }
-    if (cmd == "arriere") {
+    if (cmd == "Reverse") {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 100)
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 100)
     }
-    if (cmd == "droite") {
+    if (cmd == "Right") {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 100)
     }
-    if (cmd == "gauche") {
+    if (cmd == "Left") {
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 100)
     }
     if (cmd == "stop") {
